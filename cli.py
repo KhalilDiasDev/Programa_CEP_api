@@ -2,7 +2,7 @@ import argparse
 import requests
 
 def consultar_cep(cep):
-    # Verificação se o CEP é uma string vazia ou contém apenas espaços em branco
+    # Verificação se o CEP é uma string vazia
     if not cep.strip():
         print(" =========== CEP vazio ===========")
         exit()
@@ -26,7 +26,7 @@ def consultar_cep(cep):
     else:
         print("=========== Erro na consulta do CEP =========== ")
         exit()
-
+# Tratamento das informações de Json para string
 def exibir_cep(dados_cep):
     print("==============================================")
     print("Resultado da Busca: CEP:", dados_cep["cep"])
@@ -37,7 +37,7 @@ def exibir_cep(dados_cep):
     print("Estado:", dados_cep["uf"])
     print("==============================================")
     
-
+#criação da linha de comando 
 def main():
     parser = argparse.ArgumentParser(description="Utilitário de consulta de CEP")
     parser.add_argument("-cep", required=True, help="Número do CEP para consulta")
@@ -48,7 +48,7 @@ def main():
         exibir_cep(dados_cep)
     except ValueError as e:
         print("Erro:", e)
-
+#inicialização do programa
 if __name__ == "__main__":
     main()
 
