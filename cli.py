@@ -1,8 +1,10 @@
+#biblioteca para gerar a linha de comando
 import argparse
+#biblioteca usada para consumir a API
 import requests
 
 def consultar_cep(cep):
-    # Verificação se o CEP é uma string vazia
+    # verificação se o CEP é uma string vazia
     if not cep.strip():
         print(" =========== CEP vazio ===========")
         exit()
@@ -26,7 +28,7 @@ def consultar_cep(cep):
     else:
         print("=========== Erro na consulta do CEP =========== ")
         exit()
-# Tratamento das informações de Json para string
+# tratamento das informações de Json para string
 def exibir_cep(dados_cep):
     print("==============================================")
     print("Resultado da Busca: CEP:", dados_cep["cep"])
